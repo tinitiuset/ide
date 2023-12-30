@@ -12,5 +12,7 @@ RUN apk add --update-cache \
 COPY config/init.lua /root/.config/nvim/init.lua
 COPY config/lua /root/.config/nvim/lua
 
+RUN nvim --headless "+Lazy! sync" +qa
+
 WORKDIR /workspace
 ENTRYPOINT ["nvim", "."]
